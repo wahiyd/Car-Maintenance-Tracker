@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Maintenance Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <header>
+                <h1><i class="fas fa-car"></i> Car Maintenance Tracker</h1>
+                <p class="subtitle">Gérez l'entretien de vos véhicules en toute simplicité</p>
+            </header>
+
+            <div class="dashboard">
+                <div class="dashboard-card" onclick="showSection('add-car')">
+                    <i class="fas fa-plus-circle"></i>
+                    <h3>Ajouter une voiture</h3>
+                    <p>Enregistrez un nouveau véhicule</p>
+                </div>
+
+                <div class="dashboard-card" onclick="showSection('car-list')">
+                    <i class="fas fa-list-alt"></i>
+                    <h3>Mes voitures</h3>
+                    <p>Consultez et gérez votre flotte</p>
+                </div>
+            </div>
+
+            <div id="add-car" class="section hidden">
+                <div class="section-header">
+                    <h2><i class="fas fa-plus-circle"></i> Nouvelle voiture</h2>
+                    <button class="back-btn" onclick="showSection('dashboard')">
+                        <i class="fas fa-arrow-left"></i> Retour
+                    </button>
+                </div>
+                <div class="car-form">
+                    <input type="text" id="brand" placeholder="Marque" required>
+                    <input type="text" id="model" placeholder="Modèle" required>
+                    <input type="number" id="year" placeholder="Année" required>
+                    <input type="text" id="immatriculation" placeholder="Immatriculation" required>
+                    <input type="number" id="kilometrage" placeholder="Kilométrage actuel" required>
+                    <select id="carburant">
+                        <option value="">Type de carburant</option>
+                        <option value="Essence">Essence</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Hybride">Hybride</option>
+                        <option value="Électrique">Électrique</option>
+                    </select>
+                    <select id="transmission">
+                        <option value="">Type de transmission</option>
+                        <option value="Manuelle">Manuelle</option>
+                        <option value="Automatique">Automatique</option>
+                    </select>
+                    <input type="number" id="puissance" placeholder="Puissance (CV)">
+                    <button onclick="addCar()">Ajouter Voiture</button>
+                </div>
+            </div>
+
+            <div id="car-list" class="section hidden">
+                <div class="section-header">
+                    <h2><i class="fas fa-list-alt"></i> Mes voitures</h2>
+                    <button class="back-btn" onclick="showSection('dashboard')">
+                        <i class="fas fa-arrow-left"></i> Retour
+                    </button>
+                </div>
+                <div id="cars"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .car-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
